@@ -1,0 +1,10 @@
+{
+    "development": {
+      "username": "root",
+      "password": "",
+      "database": "multiform",
+      "host": "127.0.0.1",
+      "dialect": "mysql",
+      "time_ zone": "UTC"
+    }
+}
