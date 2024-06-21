@@ -93,7 +93,7 @@ module.exports=(sequelize,DataTypes)=>{
                  type:DataTypes.STRING
             },
             expiration_date:{
-                type:DataTypes.DATE
+                type:DataTypes.STRING
             },
             cvv_code:{
                 type:DataTypes.STRING
@@ -104,5 +104,6 @@ module.exports=(sequelize,DataTypes)=>{
         }
     )
     // Form.sync({force:true});
+    // Form.sync({alter:true})
     return Form
 }

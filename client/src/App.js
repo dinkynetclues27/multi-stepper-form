@@ -164,6 +164,7 @@ function App() {
     cvv_code: ''
   });
 
+  const [errors,seterrors] = useState({});
   const nextStep = () => {
     setStep(step + 1);
   };
@@ -184,13 +185,12 @@ function App() {
     });
 
     try {
-      const response = await axios.post('http://localhost:5000/forms', data, {
+      const response = await axios.post('http://localhost:4000/api/form', data, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
       });
       console.log(response.data);
-      // Clear form data and show the thank you message
       setFormData({
         firstname: '',
         lastname: '',
@@ -224,7 +224,17 @@ function App() {
       });
       setSubmitted(true);
     } catch (error) {
-      console.error(error);
+      if (error.response && error.response.data && error.response.data.error && error.response.data.error.details) {
+  
+        const { details } = error.response.data.error;
+        const errorObject = {};
+        details.forEach(detail => {
+          errorObject[detail.context.key] = detail.message;
+        });
+        seterrors(errorObject);
+      } else {
+        console.error('Error submitting form:', error);
+      }
     }
   };
 
@@ -234,15 +244,15 @@ function App() {
 
   switch(step) {
     case 1:
-      return <StepOne nextStep={nextStep} handleChange={handleChange} formData={formData} />;
+      return <StepOne nextStep={nextStep} handleChange={handleChange} formData={formData} errors={errors}/>;
     case 2:
-      return <StepTwo nextStep={nextStep} prevStep={prevStep} handleChange={handleChange} formData={formData} />;
+      return <StepTwo nextStep={nextStep} prevStep={prevStep} handleChange={handleChange} formData={formData} errors={errors} />;
     case 3:
-      return <StepThree nextStep={nextStep} prevStep={prevStep} handleChange={handleChange} formData={formData} />;
+      return <StepThree nextStep={nextStep} prevStep={prevStep} handleChange={handleChange} formData={formData} errors={errors} />;
     case 4:
-      return <StepFour nextStep={nextStep} prevStep={prevStep} formData={formData} />;
+      return <StepFour nextStep={nextStep} prevStep={prevStep} formData={formData} errors={errors} />;
     case 5:
-      return <StepFive prevStep={prevStep} handleChange={handleChange} handleSubmit={handleSubmit} formData={formData} />;
+      return <StepFive prevStep={prevStep} handleChange={handleChange} handleSubmit={handleSubmit} formData={formData} errors={errors} />;
     default:
       return <div>Error: Invalid step</div>;
   }
