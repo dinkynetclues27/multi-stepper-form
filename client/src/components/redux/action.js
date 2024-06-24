@@ -1,24 +1,24 @@
-export const SET_FORM_DATA = 'SET_FORM_DATA';
-export const SET_STEP = 'SET_STEP';
-export const SET_SUBMITTED = 'SET_SUBMITTED';
-export const SET_ERRORS = 'SET_ERRORS';
+export const setdata = 'setdata';
+export const setstep = 'setstep';
+export const submit = 'submit';
+export const errorset = 'errorset';
 
 export const setFormData = (data) => ({
-  type: SET_FORM_DATA,
+  type: setdata,
   payload: data
 });
 
 export const setStep = (step) => ({
-  type: SET_STEP,
+  type: setstep,
   payload: step
 });
 
 export const setSubmitted = (submitted) => ({
-  type: SET_SUBMITTED,
+  type: submit,
   payload: submitted
 });
 
 export const setErrors = (errors) => ({
-  type: SET_ERRORS,
+  type: errorset,
   payload: errors
 });

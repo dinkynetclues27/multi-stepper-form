@@ -9,7 +9,7 @@ const StepFive = ({ prevStep, handleChange, handleSubmit, formData , errors}) =>
     if (!formData.payment_method) newErrors.payment_method = "Payment Method is required";
     
     if (!formData.payment_amount) newErrors.payment_amount = "Payment amount is required";
-    // else if (!/^\d+$'/.test(formData.payment_amount)) newErrors.payment_amount = "Payment amount should only contains number";
+    // else if (!/^\d{5}$'/.test(formData.payment_amount)) newErrors.payment_amount = "Payment amount should only contains number";
 
     // if (!formData.credit_card_number) newErrors.credit_card_number = "Credit card number is required";
     // else if (!/^\\d{12}$'/.test(formData.credit_card_number)) newErrors.credit_card_number = "Credit card number should only contains number";

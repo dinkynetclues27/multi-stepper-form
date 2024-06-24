@@ -94,7 +94,8 @@ const StepTwo = ({ nextStep, prevStep, handleChange, formData , errors }) => {
       <label class="col-sm-2 col-form-label">Contact Person: </label>
       <div class="col-sm-10">
       <input class="form-control" type="text" placeholder="Contact Person" onChange={handleChange('contact_person')} value={formData.contact_person} />
-      {errors && errors.contact_person && <p style={{color:"red"}} className="error-message">{errors.contact_person}</p>}
+      {(localErrors.contact_person || errors.contact_person) && <p style={{color:"red"}} className="error-message">{localErrors.contact_person || errors.contact_person}</p>}
+
       </div>
       </div>
      

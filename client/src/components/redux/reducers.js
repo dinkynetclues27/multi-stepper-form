@@ -1,4 +1,4 @@
-import { SET_FORM_DATA, SET_STEP, SET_SUBMITTED, SET_ERRORS } from './action';
+import { setdata, setstep, submit, errorset } from './action';
 
 const initialState = {
   step: 1,
@@ -38,7 +38,7 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_FORM_DATA:
+    case setdata:
       return {
         ...state,
         formData: {
@@ -46,17 +46,17 @@ const rootReducer = (state = initialState, action) => {
           ...action.payload
         }
       };
-    case SET_STEP:
+    case setstep:
       return {
         ...state,
         step: action.payload
       };
-    case SET_SUBMITTED:
+    case submit:
       return {
         ...state,
         submitted: action.payload
       };
-    case SET_ERRORS:
+    case errorset:
       return {
         ...state,
         errors: action.payload

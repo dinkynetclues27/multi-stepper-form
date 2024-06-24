@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+import Progress from './Progress';
 
 const StepOne = ({ nextStep, handleChange, formData , errors }) => {
   const [localErrors, setLocalErrors] = useState({});
