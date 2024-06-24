@@ -193,18 +193,18 @@ const createFormschema =Joi.object({
       'any.required': 'Payment amount is required',
     }),
     payment_method: Joi.string().required(),
-    credit_card_number: Joi.number()
-    .integer()
-    .min(1)
-    .max(12) 
-    .required()
-    .messages({
-      'number.base': 'Credit card number must be a number',
-      'number.integer': 'Credit card number must be an integer',
-      'number.min': 'Credit card number must be at least {#limit}',
-      'number.max': 'Credit card number cannot exceed {#limit}',
-      'any.required': 'Credit card number is required',
-    }),
+    // credit_card_number: Joi.number()
+    // .integer()
+    // .min(1)
+    // .max(12) 
+    // .required()
+    // .messages({
+    //   'number.base': 'Credit card number must be a number',
+    //   'number.integer': 'Credit card number must be an integer',
+    //   'number.min': 'Credit card number must be at least {#limit}',
+    //   'number.max': 'Credit card number cannot exceed {#limit}',
+    //   'any.required': 'Credit card number is required',
+    // }),
     expiration_date: Joi.string()
     .trim()
     .regex(/^(0[1-9]|1[0-2])\/\d{4}$/) 

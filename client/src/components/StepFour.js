@@ -161,8 +161,8 @@ const StepFour = ({ nextStep, prevStep, formData }) => {
       </div>
 
 
-      <button class="btn btn-primary" onClick={prevStep}>Back</button>
-      <button class="btn btn-primary" onClick={nextStep}>Next</button>
+      <button type="button" class="btn btn-primary" onClick={prevStep}>Back</button>
+      <button type="button" class="btn btn-primary" onClick={nextStep}>Next</button>
       </form>
     </div>
   );

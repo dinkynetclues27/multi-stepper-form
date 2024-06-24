@@ -89,9 +89,9 @@ module.exports=(sequelize,DataTypes)=>{
             payment_method:{
                 type:DataTypes.STRING
             },
-            credit_card_number:{
-                 type:DataTypes.STRING
-            },
+            // credit_card_number:{
+            //      type:DataTypes.STRING
+            // },
             expiration_date:{
                 type:DataTypes.STRING
             },

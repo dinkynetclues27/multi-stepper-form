@@ -1,6 +1,8 @@
 import React from 'react';
 
 const StepThree = ({ nextStep, prevStep, handleChange, formData , errors }) => {
+
+
   return (
     <div className="container mt-4">
       <form className="border p-4">
@@ -23,8 +25,9 @@ const StepThree = ({ nextStep, prevStep, handleChange, formData , errors }) => {
       </div>
       </div>
 
-      <button class="btn btn-primary" onClick={prevStep}>Back</button>
-      <button class="btn btn-primary" onClick={nextStep}>Next</button>
+      
+        <button type="button" className="btn btn-primary" onClick={prevStep}>Back</button>
+        <button type="button" className="btn btn-primary" onClick={nextStep}>Next</button>
       </form>
     </div>
   );
